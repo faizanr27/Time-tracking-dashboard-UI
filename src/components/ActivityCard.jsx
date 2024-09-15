@@ -54,19 +54,35 @@ const ActivityCard = () => {
     
   return (
     card.map((e, index) => (   
-    <div key={index} className={`z-0 flex min-h-[128px] flex-col overflow-hidden rounded-2xl ${e.colorClass} md:max-h-min`}>
-      <img className="h-10 w-10 self-end" src={e.icon} alt={e.title} />
-      <div className="ga z-20 flex h-[95%] w-full flex-row justify-between rounded-2xl bg-cardcolor p-4 text-white hover:bg-cardhover sm:h-4/5 ">
-        <div className="flex flex-col justify-between gap-2 md:gap-0">
-          <h6 className="text-sm font-medium">{e.title}</h6>
-          <span className="text-4xl font-thin">{e.hours}</span>
-          <span className="text-xs text-[#8C8EBE]">Last Week - {e.lastWeekHours}</span>
-        </div>
-        <div>
-          <img src={ellipsis} alt="More" />
-        </div>
-      </div>
+    // <div key={index} className={`z-0 flex min-h-[128px] md:max-h-[190px] md:min-w-[190px] flex-col overflow-hidden rounded-2xl ${e.colorClass} md:max-h-min`}>
+    //   <img className="h-10 w-10 self-end" src={e.icon} alt={e.title} />
+    //   <div className="z-20 flex h-[95%] w-full flex-row justify-between rounded-2xl bg-cardcolor p-4 text-white hover:bg-cardhover sm:h-4/5 ">
+    //     <div className="flex flex-col justify-between gap-2 md:gap-0">
+    //       <h6 className="text-sm font-medium">{e.title}</h6>
+    //       <span className="text-4xl font-thin">{e.hours}</span>
+    //       <span className="text-xs text-[#8C8EBE]">Last Week - {e.lastWeekHours}</span>
+    //     </div>
+    //     <div>
+    //       <img className='cursor-pointer' src={ellipsis} alt="More" />
+    //     </div>
+    //   </div>
+    // </div>
+    <div key={index} className={`mb-4 sm:mb-0 z-0 flex min-h-max sm:max-h-[160px] md:min-w-[190px] flex-col rounded-2xl ${e.colorClass} `}>
+  <div className={`flex-grow  rounded-t-2xl pr-2`}>
+    <img className="h-10 w-10 ml-auto" src={e.icon} alt={e.title} />
+  </div>
+  <div className="z-20 flex  min-h-[90%] w-full flex-row justify-between rounded-2xl p-4 text-white bg-cardcolor hover:bg-cardhover">
+    <div className="flex flex-col justify-between gap-2 md:gap-0">
+      <h6 className="text-sm font-medium">{e.title}</h6>
+      <span className="text-4xl font-thin">{e.hours}</span>
+      <span className="hidden sm:block text-xs text-[#8C8EBE]">Last Week - {e.lastWeekHours}</span>
     </div>
+    <div className='flex flex-col justify-between'>
+      <img className='cursor-pointer h-1 w-5 self-end' src={ellipsis} alt="More" />
+      <span className="sm:hidden text-xs text-[#8C8EBE]">Last Week - {e.lastWeekHours}</span>
+    </div>
+  </div>
+</div>
     ))
 
   );
